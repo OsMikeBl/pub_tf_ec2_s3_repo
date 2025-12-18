@@ -17,7 +17,7 @@ variable "network_id" {
 
 # Simple resource for testing skip logic - doesn't require network_id
 resource "aws_s3_bucket" "app_bucket" {
-  bucket = "${var.name}-app-bucket-${random_id.bucket_suffix.hex}"
+  bucket = "${coalesce(var.name, "default")}-app-bucket-${random_id.bucket_suffix.hex}"
 
   tags = {
     Name        = var.name
