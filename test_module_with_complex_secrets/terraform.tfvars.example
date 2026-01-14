@@ -1,0 +1,41 @@
+# Example terraform.tfvars for test_module_with_complex_secrets
+
+string_expression = "https://api.example.com/v1"
+
+policy_config = {
+  version = "2.0"
+  rules = [
+    {
+      action   = "allow"
+      resource = "arn:aws:s3:::my-bucket/*"
+    },
+    {
+      action   = "deny"
+      resource = "arn:aws:s3:::restricted-bucket/*"
+    }
+  ]
+}
+
+array_value = ["value1", "value2", "value3"]
+
+boolean_value = true
+
+number_value = 42
+
+mixed_object_with_secrets = {
+  enabled  = true
+  timeout  = 300
+  endpoints = [
+    "https://api.prod.example.com",
+    "https://api-backup.prod.example.com"
+  ]
+  metadata = {
+    environment = "production"
+    region      = "us-east-1"
+  }
+  my_secret1 = "super-secret-api-key-12345"
+  my_secret2 = {
+    username = "admin"
+    password = "P@ssw0rd!SecurePassword123"
+  }
+}
