@@ -1,0 +1,80 @@
+{
+  "name": "test_module",
+  "version": "1.0.4",
+  "description": "Test module with mixed value types (strings, objects, arrays, booleans, numbers)",
+  "tags": [],
+  "manifest_version": 1,
+  "state": "unmanaged",
+  "props": {
+    "string_expression": {
+      "type": "string",
+      "description": "String prop with expression"
+    },
+    "policy_config": {
+      "type": "any",
+      "description": "Policy configuration object with rules and version"
+    },
+    "array_value": {
+      "type": "any",
+      "description": "Array prop value"
+    },
+    "boolean_value": {
+      "type": "bool",
+      "description": "Boolean prop value"
+    },
+    "number_value": {
+      "type": "number",
+      "description": "Number prop value"
+    },
+    "mixed_object": {
+      "type": "any",
+      "description": "Object with nested expressions"
+    }
+  },
+  "outs": {
+    "string_expression": {
+      "type": "string",
+      "description": "The evaluated string expression",
+      "value": "var.string_expression"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version from policy config",
+      "value": "var.policy_config.version"
+    },
+    "rules_count": {
+      "type": "number",
+      "description": "Number of rules in policy config",
+      "value": "length(var.policy_config.rules)"
+    },
+    "policy_config": {
+      "type": "string",
+      "description": "The policy configuration object",
+      "value": "var.policy_config"
+    },
+    "array_value": {
+      "type": "string",
+      "description": "The array value",
+      "value": "jsonencode(var.array_value)"
+    },
+    "boolean_value": {
+      "type": "bool",
+      "description": "The boolean value",
+      "value": "var.boolean_value"
+    },
+    "number_value": {
+      "type": "number",
+      "description": "The number value",
+      "value": "var.number_value"
+    },
+    "mixed_object": {
+      "type": "string",
+      "description": "The mixed object",
+      "value": "jsonencode(var.mixed_object)"
+    }
+  },
+  "native": {
+    "type": "terraform",
+    "path": "."
+  }
+}
