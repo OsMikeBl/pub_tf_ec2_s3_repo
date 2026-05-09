@@ -15,7 +15,8 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name = var.name
+    Name        = var.name
+    Environment = "dev"
   }
 }
 
