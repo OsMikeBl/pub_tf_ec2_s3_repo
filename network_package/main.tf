@@ -9,6 +9,12 @@ variable "cidr" {
   default     = "10.0.0.0/16"
 }
 
+variable "environment" {
+  description = "Environment name for tagging"
+  type        = string
+  default     = "dev"
+}
+
 resource "aws_vpc" "vpc" {
   cidr_block           = var.cidr
   enable_dns_hostnames = true
@@ -16,7 +22,7 @@ resource "aws_vpc" "vpc" {
 
   tags = {
     Name        = var.name
-    Environment = "dev"
+    Environment = var.environment
   }
 }
 
