@@ -20,7 +20,7 @@ provider "aws" {
 variable "region" {
   description = "AWS region to deploy resources in"
   type        = string
-  default     = "eu-west-1"
+  default     = "eu-central-1"
 }
 
 variable "instance_type" {
